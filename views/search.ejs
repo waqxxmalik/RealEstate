@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Search Page</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+
+:root{
+   --main-color:#DA2C32;
+   --light-color:#666;
+   --light-bg:#eee;
+   --white:#fff;
+   --black:#303030;
+   --border:.1rem solid var(--light-color);
+   --box-shodow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+   font-family: 'Montserrat', sans-serif;
+   margin: 0; padding: 0;
+   box-sizing: border-box;
+   outline: none; border: none;
+   text-decoration: none;
+}
+
+*::selection{
+   background-color: var(--main-color);
+   color: var(--white);
+}
+
+*::-webkit-scrollbar{
+   height: .5rem;
+   width: 1rem;
+}
+
+*::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+   background-color: var(--main-color);
+   border-radius: 5rem;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+   scroll-behavior: smooth;
+   scroll-padding-top: 10rem;
+}
+
+body{
+   background-color: var(--light-bg);
+}
+
+section{
+   padding: 3rem 2rem;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.heading{
+   text-align: center;
+   padding-bottom: 2.5rem;
+   font-size: 3rem;
+   color: var(--black);
+   text-transform: capitalize;
+}
+
+.btn,
+.inline-btn{
+   margin-top: 1rem;
+   padding: 1rem 3rem;
+   background-color: var(--main-color);
+   color: var(--white);
+   cursor: pointer;
+   text-align: center;
+   font-size: 1.8rem;
+   text-transform: capitalize;
+}
+
+.btn:hover,
+.inline-btn:hover{
+   background-color: var(--black);
+}
+
+.btn{
+   display: block;
+   width: 100%;
+}
+
+.inline-btn{
+   display: inline-block;
+}
+
+.header{
+   position: sticky;
+   top: 0; left: 0; right: 0;
+   z-index: 1000;
+   box-shadow: var(--box-shodow);
+}
+
+.header .navbar.nav-1 .flex{
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+}
+
+.header .navbar.nav-2 .flex{
+   padding-top: 0;
+   padding-bottom: 0;
+}
+
+.header .navbar.nav-1{
+   background-color: var(--black);
+}
+
+.header .navbar.nav-2{
+   background-color: var(--white);
+}
+
+.header .navbar .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.header .navbar .flex .logo{
+   font-size: 2.2rem;
+   color: var(--white); 
+}
+
+.header .navbar .flex .logo i{
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.header .navbar .flex ul{
+   list-style: none;
+}
+
+.header .navbar .flex ul li{
+   float: left;
+   position: relative;
+}
+
+.header .navbar .flex ul li a{
+   display: inline-block;
+   padding: 1.2rem 2rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   background-color: var(--white);
+}
+
+.header .navbar .flex ul li a:hover{
+   background-color: var(--main-color);
+   color: var(--white);
+}
+
+.header .navbar .flex ul li a i{
+   margin-left: 1rem;
+}
+
+.header .navbar .flex ul li ul{
+   position: absolute;
+   width: 17rem;
+   left: 0;
+}
+
+.header .navbar .flex ul li ul li{
+   width: 100%;
+}
+
+.header .navbar .flex ul li ul li a{
+   display: none;
+}
+
+.header .navbar .flex ul li:hover ul li a{
+   display: block;
+}
+
+#menu-btn{
+   font-size: 2.5rem;
+   color: var(--black);
+   display: none;
+}
+
+.home{
+   background:url('../images/home-bg.jpg') no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.home .center{
+   min-height: 85vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.home .center form{
+   background-color: var(--white);
+   padding: 2rem;
+   box-shadow: var(--box-shodow);
+   width: 50rem;
+}
+
+.home .center form h3{
+   padding-bottom: 1rem;
+   text-align: center;
+   color: var(--black);
+   text-transform: capitalize;
+   font-size: 2.5rem;
+}
+
+.home .center form .flex{
+   display: flex;
+   gap:1rem;
+   flex-wrap: wrap;
+}
+
+.home .center form .box{
+   flex: 1 1 20rem;
+}
+
+.home .center form .box .input{
+   width: 100%;
+   border: var(--border);
+   padding: 1.4rem;
+   color: var(--black);
+   font-size: 1.8rem;
+   margin: 1rem 0;
+}
+
+.home .center form .box p{
+   color: var(--light-color);
+   font-size: 1.7rem;
+   padding-top: 1rem;
+}
+
+.home .center form .box p span{
+   color: var(--main-color);
+}
+
+.services .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 30rem);
+   gap: 2rem;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+.services .box-container .box{
+   background-color: var(--white);
+   box-shadow: var(--box-shodow);
+   padding: 2rem;
+   text-align: center;
+}
+
+.services .box-container .box img{
+   margin: 1rem 0;
+   height: 8rem;
+}
+
+.services .box-container .box h3{
+   font-size: 2rem;
+   padding: 1rem 0;
+   color: var(--black);
+   text-transform: capitalize;
+}
+
+.services .box-container .box p{
+   line-height: 2;
+   font-size: 1.6rem;
+   color: var(--light-color);
+   padding-top: .5rem;
+}
+
+.listings .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   gap: 2rem;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+.listings .box-container .box{
+   background-color: var(--white);
+   box-shadow: var(--box-shodow);
+   padding: 2rem;
+   overflow-x: hidden;
+}
+
+.listings .box-container .box .admin{
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+}
+
+.listings .box-container .box .admin h3{
+   height: 4.5rem;
+   line-height: 4.4rem;
+   width: 4.5rem;
+   border-radius: 50%;
+   font-size: 2rem;
+   color: var(--black);
+   background-color: var(--light-bg);
+   text-align:center;
+}
+
+.listings .box-container .box .admin p{
+   font-size: 1.7rem;
+   color: var(--black);
+   padding-bottom: .3rem;
+}
+
+.listings .box-container .box .admin span{
+   font-size: 1.5rem;
+   color: var(--light-color);
+}
+
+.listings .box-container .box .thumb{
+   position: relative;
+   height: 20rem;
+   overflow: hidden;
+   margin: 1.5rem 0;
+}
+
+.listings .box-container .box .thumb img{
+   height: 100%;
+   width: 100%;
+   transition: .2s linear;
+}
+
+.listings .box-container .box:hover .thumb img{
+   transform: scale(1.1);
+}
+
+.listings .box-container .box .thumb .total-images{
+   position: absolute;
+   top: 1rem; left: 1rem;
+   background-color: rgba(0,0,0,.3);
+   color: var(--white);
+   padding: .5rem 1.5rem;
+   font-size: 1.6rem;
+   z-index: 1;
+}
+
+.listings .box-container .box .thumb .total-images i{
+   margin-right: .7rem;
+}
+
+.listings .box-container .box .thumb .type{
+   position: absolute;
+   bottom: 1rem; left: .7rem;
+   z-index: 1;
+}
+
+.listings .box-container .box .thumb .type span{
+   margin-right: .7rem;
+   padding: .5rem 1.5rem;
+   color: var(--white);
+   background-color: var(--main-color);
+   font-size: 1.6rem;
+}
+
+.listings .box-container .box .thumb .save{
+   position: absolute;
+   top: 1rem; right: 1rem;
+   z-index: 1;
+}
+
+.listings .box-container .box .thumb .save button{
+   background-color: rgba(0,0,0,.3);
+   color: var(--white);
+   padding: .7rem 1rem;
+   font-size: 1.6rem;
+   cursor: pointer;
+}
+
+.listings .box-container .box .thumb .save button:hover{
+   background-color: var(--main-color);
+}
+
+.listings .box-container .box .name{
+   font-size: 2rem;
+   text-overflow: ellipsis;
+   overflow-x: hidden;
+   color: var(--black);
+   margin-bottom: .5rem;
+}
+
+.listings .box-container .box .location{
+   padding-top: 1rem;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.listings .box-container .box .location i{
+   margin-right: 1rem;
+   color: var(--main-color);
+}
+
+.listings .box-container .box .flex{
+   display: flex;
+   background-color: var(--light-bg);
+   padding: 1.5rem;
+   justify-content: space-between;
+   align-items: center;
+   margin: 1.5rem 0;
+   flex-wrap: wrap;
+   gap: 1.5rem;
+}
+
+.listings .box-container .box .flex p{
+   font-size: 1.6rem;
+   flex: 1 1 4rem;
+}
+
+.listings .box-container .box .flex p span{
+   color: var(--light-color);
+}
+
+.listings .box-container .box .flex p i{
+   margin-right: 1rem;
+   color: var(--main-color);
+}
+
+.view-property .details{
+   background-color: var(--white);
+   box-shadow: var(--box-shodow);
+   padding: 2rem;
+   overflow-x: hidden;
+}
+
+.view-property .details .thumb{
+   background-color: var(--black);
+   padding: 1.5rem;
+   margin-bottom: 1.5rem;
+}
+
+.view-property .details .thumb .big-image img{
+   height: 40rem;
+   width: 100%;
+   object-fit: contain;
+}
+
+.view-property .details .thumb .small-images{
+   display: flex;
+   justify-content: center;
+   gap: 1.5rem;
+   padding-top: 1rem;
+   flex-wrap: wrap;
+}
+
+.view-property .details .thumb .small-images img{
+   height: 7rem;
+   width: 10rem;
+   object-fit: cover;
+   cursor: pointer;
+   transition: .2s linear;
+}
+
+.view-property .details .thumb .small-images img:hover{
+   transform: scale(1.1);
+}
+
+.view-property .details .name{
+   font-size: 2rem;
+   text-overflow: ellipsis;
+   overflow-x: hidden;
+   margin-bottom: .5rem;
+}
+
+.view-property .details .location{
+   padding-top: 1rem;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.view-property .details .location i{
+   margin-right: 1rem;
+   color: var(--main-color);
+}
+
+.view-property .details .info{
+   display: flex;
+   background-color: var(--light-bg);
+   padding: 1.5rem;
+   margin: 1.5rem 0;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 2rem;
+}
+
+.view-property .details .info p{
+   font-size: 1.7rem;
+}
+
+.view-property .details .info p span,
+.view-property .details .info p a{
+   color: var(--light-color);
+}
+
+.view-property .details .info p a:hover{
+   text-decoration: underline;
+}
+
+.view-property .details .info p i{
+   margin-right: 1.5rem;
+   color: var(--main-color);
+}
+
+.view-property .details .title{
+   font-size: 2rem;
+   color: var(--black);
+   padding-bottom: 1.5rem;
+   border-bottom: var(--border);
+}
+
+.view-property .details .flex{
+   margin: 1.5rem 0;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.view-property .details .flex .box{
+   flex: 1 1 40rem;
+}
+
+.view-property .details .flex .box p{
+   padding: .5rem 0;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.view-property .details .flex .box i{
+   color: var(--main-color);
+   margin-right: 1.5rem;
+}
+
+.view-property .details .description{
+   padding: .5rem 0;
+   margin-top: .5rem;
+   font-size: 1.6rem;
+   color: var(--light-color);
+   line-height: 1.5;
+}
+
+.about .row{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1.5rem;
+   align-items: center;
+}
+
+.about .row .image{
+   flex: 1 1 40rem;
+}
+
+.about .row .image img{
+   width: 100%;
+}
+
+.about .row .content{
+   flex: 1 1 40rem;
+   text-align: center;
+}
+
+.about .row .content h3{
+   font-size: 2.5rem;
+   color: var(--black);
+   margin-bottom: .5rem;
+   text-transform: capitalize;
+}
+
+.about .row .content p{
+   line-height: 2;
+   padding: 1rem 0;
+   font-size: 1.7rem;
+   color: var(--light-color);
+}
+
+.steps .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 30rem);
+   gap: 2rem;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+.steps .box-container .box{
+   background-color: var(--white);
+   padding: 2rem;
+   text-align: center;
+   box-shadow: var(--box-shodow);
+}
+
+.steps .box-container .box img{
+   height: 7rem;
+   margin: .5rem 0;
+}
+
+.steps .box-container .box h3{
+   padding: 1rem 0;
+   font-size: 2rem;
+   text-transform: capitalize;
+   color: var(--black);
+}
+
+.steps .box-container .box p{
+   line-height: 2;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.reviews .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   gap: 2rem;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+.reviews .box-container .box{
+   background-color: var(--white);
+   padding: 2rem;
+   box-shadow: var(--box-shodow);
+}
+
+.reviews .box-container .box .user{
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   margin-bottom: 1rem;
+}
+
+.reviews .box-container .box .user img{
+   height: 6rem;
+   width: 6rem;
+   border-radius: 50%;
+}
+
+.reviews .box-container .box .user h3{
+   font-size: 2rem;
+   color: var(--black);
+   padding-bottom: .3rem;
+}
+
+.reviews .box-container .box .user .stars i{
+   font-size: 1.5rem;
+   color: var(--main-color);
+}
+
+.reviews .box-container .box p{
+   line-height: 2;
+   padding-top: .5rem;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.contact .row{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1.5rem;
+   align-items: center;
+}
+
+.contact .row .image{
+   flex: 1 1 50rem;
+}
+
+.contact .row .image img{
+   width: 100%;
+}
+
+.contact .row form{
+   flex: 1 1 30rem;
+   background-color: var(--white);
+   box-shadow: var(--box-shodow);
+   padding: 2rem;
+}
+
+.contact .row form h3{
+   padding-bottom: 1rem;
+   font-size: 2.5rem;
+   color: var(--black);
+   text-align: center;
+   text-transform: capitalize;
+}
+
+.contact .row form .box{
+   width: 100%;
+   border: var(--border);
+   padding: 1.4rem;
+   color: var(--black);
+   font-size: 1.8rem;
+   margin: 1rem 0;
+}
+
+.contact .row form textarea{
+   height: 15rem;
+   resize: none;
+}
+
+.faq .box-container{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+   align-items: flex-start;
+}
+
+
+.faq .box-container .box{
+   flex: 1 1 40rem;
+   box-shadow: var(--box-shodow);
+}
+
+.faq .box-container .box h3{
+   padding: 1.5rem 2rem;
+   font-size: 2rem;
+   background-color: var(--black);
+   color: var(--white);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1rem;
+   cursor: pointer;
+}
+
+.faq .box-container .box p{
+   font-size: 1.6rem;
+   color: var(--light-color);
+   background-color: var(--white);
+   padding: 1.5rem 2rem;
+   line-height: 1.5;
+   display: none;
+}
+
+.faq .box-container .box.active p{
+   display: block;
+}
+
+.faq .box-container .box.active h3{
+   background-color: var(--main-color);
+}
+
+.filters form{
+   background-color: var(--white);
+   box-shadow: var(--box-shodow);
+   padding: 2rem;
+}
+
+.filters form #close-filter{
+   text-align: right;
+   padding-bottom: 2rem;
+   display: none;
+}
+
+.filters form #close-filter i{
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.4rem;
+   background-color: var(--main-color);
+   color: var(--white);
+   cursor: pointer;
+   font-size: 2rem;
+   text-align: center;
+}
+
+.filters form #close-filter i:hover{
+   background-color: var(--black);
+}
+
+.filters form h3{
+   font-size: 2.5rem;
+   padding-bottom: 2rem;
+   color: var(--black);
+   text-transform: capitalize;
+   text-align: center;
+}
+
+.filters form .flex{
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+}
+
+.filters form .flex .box{
+   flex: 1 1 40rem;
+}
+
+.filters form .flex .box .input{
+   width: 100%;
+   margin: 1rem 0;
+   font-size: 1.8rem;
+   color: var(--black);
+   border: var(--border);
+   padding: 1.4rem;
+}
+
+.filters form .flex .box p{
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+#filter-btn{
+   position: fixed;
+   bottom: 1rem; right: 1rem;
+   background-color: var(--border);
+   color: var(--white);
+   text-align: center;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.4rem;
+   z-index: 1000;
+   font-size: 2rem;
+   background-color: var(--main-color);
+   display: none;
+}
+
+.form-container form{
+   max-width: 50rem;
+   margin: 0 auto;
+   background-color: var(--white);
+   box-shadow: var(--box-shodow);
+   padding: 2rem;
+   text-align: center;
+}
+
+.form-container form h3{
+   padding-bottom: 1rem;
+   font-size: 2.5rem;
+   color: var(--black);
+   text-transform: capitalize;
+}
+
+.form-container form .box{
+   border: var(--border);
+   padding: 1.4rem;
+   color: var(--black);
+   margin: 1rem 0;
+   width: 100%;
+   font-size: 1.8rem;
+}
+
+.form-container form p{
+   font-size: 1.7rem;
+   padding: 1rem 0;
+   color: var(--light-color);
+}
+
+.form-container form p a{
+   color: var(--main-color);
+}
+
+.form-container form p a:hover{
+   text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+   background-color: var(--black);
+}
+
+.footer .flex{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+   justify-content: space-between;
+}
+
+.footer .flex .box{
+   flex: 1 1 30rem;
+}
+
+.footer .flex .box a{
+   display: block;
+   padding: 1rem 0;
+   font-size: 1.8rem;
+}
+
+.footer .flex .box a span{
+   color: var(--white);
+}
+
+.footer .flex .box a:hover span{
+   text-decoration: underline;
+}
+
+.footer .flex .box a i{
+   color: var(--main-color);
+}
+
+.footer .flex .box:last-child{
+   text-align: right;
+}
+
+.footer .flex .box:last-child a i{
+   margin-left: 1.5rem;
+}
+
+.footer .flex .box:first-child a i{
+   margin-right: 1.5rem;
+}
+
+.footer .flex .box:nth-child(2){
+   text-align: center;
+}
+
+.footer .credit{
+   padding: 3rem 2rem;
+   text-align: center;
+   border-top: var(--border);
+   font-size: 2rem;
+   color: var(--white);
+   margin-top: 2rem;
+   /* padding-bottom: 10rem; */
+}
+
+.footer .credit span{
+   color: var(--main-color);
+}
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+
+@media (max-width:768px){
+
+   #menu-btn{
+      display: inline-block;
+   }
+
+   .header .navbar .menu{
+      position: absolute;
+      top: 99%; left: 0; right: 0;
+      background-color: var(--white);
+      border-top: var(--border);
+      transition: .2s linear;
+      z-index:1;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+   }
+
+   .header .navbar .menu.active{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+
+   .header .navbar .menu ul li{
+      width: 100%;
+      position: relative;
+   }
+
+   .header .navbar .menu ul li a{
+      width: 100%;
+   }
+
+   .header .navbar .menu ul li ul{
+      position: relative;
+      width: 100%;
+   }
+
+   .header .navbar .menu ul li ul li a{
+      padding-left: 4rem;
+      background-color: var(--black);
+      color: var(--white);
+   }
+
+   .view-property .details .thumb .big-image img{
+      height: auto;
+   }
+
+   .view-property .details .thumb .small-images img{
+      height: 4rem;
+      width: 6rem;
+   }
+
+   #filter-btn{
+      display: inline-block;
+   }
+
+   .filters{
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      overflow-y: scroll;
+      background-color: var(--white);
+      z-index: 1100;
+      padding: 0;
+      display: none;
+   }
+
+   .filters.active{
+      display: block;
+   }
+
+   .filters form{
+      box-shadow: none;
+   }
+
+   .filters form #close-filter{
+      display: block;
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
+   .header .navbar .flex .logo{
+      font-size: 1.8rem;
+   }
+
+   .home .center form .flex{
+      gap: 0;
+   }
+
+   .listings .box-container{
+      grid-template-columns: 1fr;
+   }
+
+   .reviews .box-container{
+      grid-template-columns: 1fr;
+   }
+
+}
+   </style>
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <a href="/home" class="logo"><i class="fas fa-house"></i>MyHome</a>
+
+         <ul>
+            <li><a href="/property/new">post property<i class="fas fa-paper-plane"></i></a></li>
+         </ul>
+      </section>
+   </nav>
+
+   <nav class="navbar nav-2">
+      <section class="flex">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div class="menu">
+            <ul>
+               <li><a href="#">buy<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">house</a></li>
+                     <li><a href="#">flat</a></li>
+                     <li><a href="#">shop</a></li>
+                     <li><a href="#">ready to move</a></li>
+                     <li><a href="#">furnished</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">sell<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="/property/new">post property</a></li>
+                     <li><a href="#">dashboard</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">rent</a>
+                  <ul>
+                     <li><a href="#">house</a></li>
+                     <li><a href="#">flat</a></li>
+                     <li><a href="#">shop</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">help<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="/about">about us</a></i></li>
+                     <li><a href="/contact">contact us</a></i></li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+
+         <ul>
+            <li><a href="/property/new">account <i class="fas fa-angle-down"></i></a>
+          
+            <ul>
+                  <li><a href="/login">login</a></li>
+                  <li><a href="/register">register</a></li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+   </nav>
+
+</header>
+
+
+<!-- header section ends -->
+
+<!-- search filter section starts  -->
+
+<section class="filters" style="padding-bottom: 0;">
+
+   <form action="" method="post">
+      <div id="close-filter"><i class="fas fa-times"></i></div>
+      <h3>filter your search</h3>
+         
+         <div class="flex">
+            <div class="box">
+               <p>enter location</p>
+               <input type="text" name="location" required maxlength="50" placeholder="enter ciyt name" class="input">
+            </div>
+            <div class="box">
+               <p>offer type</p>
+               <select name="offer" class="input" required>
+                  <option value="sale">sale</option>
+                  <option value="resale">resale</option>
+                  <option value="rent">rent</option>
+               </select>
+            </div>
+            <div class="box">
+               <p>property type</p>
+               <select name="type" class="input" required>
+                  <option value="flat">flat</option>
+                  <option value="house">house</option>
+                  <option value="shop">shop</option>
+               </select>
+            </div>
+            <div class="box">
+               <p>how many BHK</p>
+               <select name="bhk" class="input" required>
+                  <option value="1">1 BHK</option>
+                  <option value="2">2 BHK</option>
+                  <option value="3">3 BHK</option>
+                  <option value="4">4 BHK</option>
+                  <option value="5">5 BHK</option>
+                  <option value="6">6 BHK</option>
+                  <option value="7">7 BHK</option>
+                  <option value="8">8 BHK</option>
+                  <option value="9">9 BHK</option>
+               </select>
+            </div>
+            <div class="box">
+               <p>maximum budget</p>
+               <select name="minimum" class="input" required>
+                  <option value="5000000">5 lac</option>
+                  <option value="1000000">10 lac</option>
+                  <option value="2000000">20 lac</option>
+                  <option value="3000000">30 lac</option>
+                  <option value="4000000">40 lac</option>
+                  <option value="4000000">40 lac</option>
+                  <option value="5000000">50 lac</option>
+                  <option value="6000000">60 lac</option>
+                  <option value="7000000">70 lac</option>
+                  <option value="8000000">80 lac</option>
+                  <option value="9000000">90 lac</option>
+                  <option value="10000000">1 Cr</option>
+                  <option value="20000000">2 Cr</option>
+                  <option value="30000000">3 Cr</option>
+                  <option value="40000000">4 Cr</option>
+                  <option value="50000000">5 Cr</option>
+                  <option value="60000000">6 Cr</option>
+                  <option value="70000000">7 Cr</option>
+                  <option value="80000000">8 Cr</option>
+                  <option value="90000000">9 Cr</option>
+                  <option value="100000000">10 Cr</option>
+                  <option value="150000000">15 Cr</option>
+                  <option value="200000000">20 Cr</option>
+               </select>
+            </div>
+            <div class="box">
+               <p>maximum budget</p>
+               <select name="maximum" class="input" required>
+                  <option value="5000000">5 lac</option>
+                  <option value="1000000">10 lac</option>
+                  <option value="2000000">20 lac</option>
+                  <option value="3000000">30 lac</option>
+                  <option value="4000000">40 lac</option>
+                  <option value="4000000">40 lac</option>
+                  <option value="5000000">50 lac</option>
+                  <option value="6000000">60 lac</option>
+                  <option value="7000000">70 lac</option>
+                  <option value="8000000">80 lac</option>
+                  <option value="9000000">90 lac</option>
+                  <option value="10000000">1 Cr</option>
+                  <option value="20000000">2 Cr</option>
+                  <option value="30000000">3 Cr</option>
+                  <option value="40000000">4 Cr</option>
+                  <option value="50000000">5 Cr</option>
+                  <option value="60000000">6 Cr</option>
+                  <option value="70000000">7 Cr</option>
+                  <option value="80000000">8 Cr</option>
+                  <option value="90000000">9 Cr</option>
+                  <option value="100000000">10 Cr</option>
+                  <option value="150000000">15 Cr</option>
+                  <option value="200000000">20 Cr</option>
+               </select>
+            </div>
+            <div class="box">
+               <p>status</p>
+               <select name="status" class="input" required>
+                  <option value="ready to move">ready to move</option>
+                  <option value="under construction">under construction</option>
+               </select>
+            </div>
+            <div class="box">
+               <p>furnished</p>
+               <select name="furnished" class="input" required>
+                  <option value="unfurnished">unfurnished</option>
+                  <option value="furnished">furnished</option>
+                  <option value="semi-furnished">semi-furnished</option>
+               </select>
+            </div>
+         </div>
+         <input type="submit" value="search property" name="search" class="btn">
+   </form>
+
+</section>
+
+<!-- search filter section ends -->
+
+<div id="filter-btn" class="fas fa-filter"></div>
+
+<!-- listings section starts  -->
+
+<section class="listings">
+
+   <h1 class="heading">searched results</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <div class="admin">
+            <h3>j</h3>
+            <div>
+               <p>john deo</p>
+               <span>10-11-2022</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>house</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/house-img-1.webp" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>andheri, mumbai, india - 401303</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>j</h3>
+            <div>
+               <p>john deo</p>
+               <span>10-11-2022</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/house-img-2.webp" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>andheri, mumbai, india - 401303</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>j</h3>
+            <div>
+               <p>john deo</p>
+               <span>10-11-2022</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/house-img-3.jpg" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>andheri, mumbai, india - 401303</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- listings section ends -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:1234567890"><i class="fas fa-phone"></i><span>123456789</span></a>
+         <a href="tel:1112223333"><i class="fas fa-phone"></i><span>1112223333</span></a>
+         <a href="mailto:shaikhanas@gmail.com"><i class="fas fa-envelope"></i><span>shaikhanas@gmail.com</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>mumbai, india - 400104</span></a>
+      </div>
+
+      <div class="box">
+         <a href="/home"><span>home</span></a>
+         <a href="/about"><span>about</span></a>
+         <a href="/contact"><span>contact</span></a>
+         <a href="/listings"><span>all listings</span></a>
+      </div>
+
+      <div class="box">
+         <a href="/facebook"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="/twitter"><span>twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="/linkedin"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="/instagram"><span>instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+
+   <div class="credit">&copy; copyright @ 2022 | all rights reserved!</div>
+
+</footer>
+
+<!-- footer section ends -->
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script>
+   let menu = document.querySelector('.header .menu');
+
+document.querySelector('#menu-btn').onclick = () =>{
+   menu.classList.toggle('active');
+}
+
+window.onscroll = () =>{
+   menu.classList.remove('active');
+}
+
+document.querySelectorAll('input[type="number"]').forEach(inputNumber => {
+   inputNumber.oninput = () =>{
+      if(inputNumber.value.length > inputNumber.maxLength) inputNumber.value = inputNumber.value.slice(0, inputNumber.maxLength);
+   };
+});
+
+document.querySelectorAll('.view-property .details .thumb .small-images img').forEach(images =>{
+   images.onclick = () =>{
+      src = images.getAttribute('src');
+      document.querySelector('.view-property .details .thumb .big-image img').src = src;
+   }
+});
+
+document.querySelectorAll('.faq .box-container .box h3').forEach(headings =>{
+   headings.onclick = () =>{
+      headings.parentElement.classList.toggle('active');
+   }
+});
+</script>
+
+<script>
+
+document.querySelector('#filter-btn').onclick = () =>{
+   document.querySelector('.filters').classList.add('active');
+}
+
+document.querySelector('#close-filter').onclick = () =>{
+   document.querySelector('.filters').classList.remove('active');
+}
+
+</script>
+
+</body>
+</html>

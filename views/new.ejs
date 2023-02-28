@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Real Estate</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  
+</head>
+<body>
+
+
+	
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+
+:root{
+   --main-color:#DA2C32;
+   --light-color:#666;
+   --light-bg:#eee;
+   --white:#fff;
+   --black:#303030;
+   --border:.1rem solid var(--light-color);
+   --box-shodow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+   font-family: 'Montserrat', sans-serif;
+   margin: 0; padding: 0;
+   box-sizing: border-box;
+   outline: none; border: none;
+   text-decoration: none;
+}
+
+*::selection{
+   background-color: var(--main-color);
+   color: var(--white);
+}
+
+*::-webkit-scrollbar{
+   height: .5rem;
+   width: 1rem;
+}
+
+*::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+   background-color: var(--main-color);
+   border-radius: 5rem;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+   scroll-behavior: smooth;
+   scroll-padding-top: 10rem;
+}
+
+body{
+   background-color: var(--light-bg);
+}
+
+section{
+   padding: 3rem 2rem;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.heading{
+   text-align: center;
+   padding-bottom: 2.5rem;
+   font-size: 3rem;
+   color: var(--black);
+   text-transform: capitalize;
+}
+
+.btn,
+.inline-btn{
+   margin-top: 1rem;
+   padding: 1rem 3rem;
+   background-color: var(--main-color);
+   color: var(--white);
+   cursor: pointer;
+   text-align: center;
+   font-size: 1.8rem;
+   text-transform: capitalize;
+}
+
+.btn:hover,
+.inline-btn:hover{
+   background-color: var(--black);
+}
+
+.btn{
+   display: block;
+   width: 100%;
+}
+
+.inline-btn{
+   display: inline-block;
+}
+
+.header{
+   position: sticky;
+   top: 0; left: 0; right: 0;
+   z-index: 1000;
+   box-shadow: var(--box-shodow);
+}
+
+.header .navbar.nav-1 .flex{
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+}
+
+.header .navbar.nav-2 .flex{
+   padding-top: 0;
+   padding-bottom: 0;
+}
+
+.header .navbar.nav-1{
+   background-color: var(--black);
+}
+
+.header .navbar.nav-2{
+   background-color: var(--white);
+}
+
+.header .navbar .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.header .navbar .flex .logo{
+   font-size: 2.2rem;
+   color: var(--white); 
+}
+
+.header .navbar .flex .logo i{
+   color: var(--main-color);
+   margin-right: 1rem;
+}
+
+.header .navbar .flex ul{
+   list-style: none;
+}
+
+.header .navbar .flex ul li{
+   float: left;
+   position: relative;
+}
+
+.header .navbar .flex ul li a{
+   display: inline-block;
+   padding: 1.2rem 2rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   background-color: var(--white);
+}
+
+.header .navbar .flex ul li a:hover{
+   background-color: var(--main-color);
+   color: var(--white);
+}
+
+.header .navbar .flex ul li a i{
+   margin-left: 1rem;
+}
+
+.header .navbar .flex ul li ul{
+   position: absolute;
+   width: 17rem;
+   left: 0;
+}
+
+.header .navbar .flex ul li ul li{
+   width: 100%;
+}
+
+.header .navbar .flex ul li ul li a{
+   display: none;
+}
+
+.header .navbar .flex ul li:hover ul li a{
+   display: block;
+}
+
+#menu-btn{
+   font-size: 2.5rem;
+   color: var(--black);
+   display: none;
+}
+
+
+
+body {
+	overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+} 
+ .black {
+ 	position: relative;
+ 	background-color: black;
+ 	width: 100%;
+    height: 31vh;
+ }
+ img {
+ 	position: absolute;
+ 	height: 25%;
+ 	width: 100%;
+ }
+
+.form-logo {
+	position: absolute;
+	width: 30%;
+	height: 100%;
+	margin-left: 30%;
+}
+	
+
+h3{
+	color: #363636;
+    font-weight: 400;
+    line-height: 1.125;
+    padding-top: 30px;
+}
+
+.formback {
+background: url("https://www.madaboutthehouse.com/wp-content/uploads/2020/07/Sandringham-Road-Aucoot-Victorian-house-modern-refurbishment-web-size_40-1040x693.jpg");
+position: absolute;	
+background-repeat: no-repeat;
+background-size: cover;
+width: 100%;
+height: 250vh;
+	
+}	
+
+
+ input{
+-webkit-appearance: none;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid #af2a2b;
+    border-radius: 50px;;
+    color: #363636;
+    display: inline-flex;
+    font-size: 14px;
+    height: 32px;
+    justify-content: flex-start;
+    line-height: 24px;
+	padding-top: 18px;
+	padding-bottom: 18px; 
+    padding-left: 15px;
+    padding-right: 8px;
+    position: relative;
+    vertical-align: top;
+    box-shadow: inset 0 1px 2px hsl(0deg 0% 4% / 10%);
+    max-width: 100%;
+    width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px; 
+}
+
+	.select input {
+		background: transparent;
+	}
+	.select {
+	border: 2px solid #af2a2b;
+	border-radius: 50px;	
+	background: #af2a2b;
+	padding-top: 5px;
+	padding-bottom: 5px; 
+    padding-left: 15px;
+    padding-right: 8px;
+    
+	}
+	input:focus {
+		border: none;
+       color: red;
+	}
+	input[type="text"] {
+    color: white;
+	font-weight: 400;	
+	font-family: Arial, sans-serif;
+}
+
+::placeholder {
+ color: whitesmoke;
+ font-weight: 900;	
+	}	
+	
+.selected { 
+ width: 100%;
+ font-weight: 900;	
+
+ background: transparent;
+ color:  whitesmoke;	
+ padding: 5px;
+ border: 2px solid #af2a2b;	 
+ border-radius: 50px;
+ box-sizing: border-box;
+ padding-top: 10px;
+ padding-bottom: 10px; 
+ padding-left: 15px;
+ padding-right: 8px;
+ margin-bottom: 5px;
+ } 
+
+	textarea::placeholder{
+		color: white;
+		font-weight: 700;
+		padding: 30px 70px 30px;
+	}
+ textarea {
+	 width: 100%;
+	 background: transparent;
+	 border-radius: 30px;
+	 height: 20vh;
+	 padding-left: 30px;
+	 border: 2px solid #af2a2b;
+}
+ textarea:focus {
+    background: black;
+    color: brown;
+    font-weight: 700;
+}
+
+
+button {
+    padding: 16px 75px;
+    background: black; color: brown;
+    border-radius: 25px;
+    margin: 20px 0px;
+    font-weight: 600;
+    margin-left: 30%;
+}
+button:hover {
+    cursor: pointer;
+    padding: 16px 75px;
+  background: brown; 
+    color: black;
+   border-radius: 25px;
+    margin: 20px 0px;
+    font-weight: 600;
+    margin-left: 30%;
+   
+}
+
+
+#custom-button {
+  padding: 10px;
+  color: white;
+  background-color: brown;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#custom-button:hover {
+  background-color: black;
+}
+
+#custom-text {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: white;
+}
+
+
+@media(max-width: 574px){
+.formback {
+background: url("https://i.ibb.co/h2NY52M/fredrick-tendong-6ou8g-Wp-S9ns-unsplash.jpg");
+position: absolute;	
+background-repeat: no-repeat;
+background-size: cover;
+width: 100%;
+height: 350vh;
+	
+}	
+		
+	
+}	
+	
+</style>
+
+<header class="header">
+
+    <nav class="navbar nav-1">
+       <section class="flex">
+          <a href="/home" class="logo"><i class="fas fa-house"></i>MyHome</a>
+ 
+          <ul>
+             <li><a href="/property/new">post property<i class="fas fa-paper-plane"></i></a></li>
+          </ul>
+       </section>
+    </nav>
+ 
+    <nav class="navbar nav-2">
+       <section class="flex">
+          <div id="menu-btn" class="fas fa-bars"></div>
+ 
+          <div class="menu">
+             <ul>
+                <li><a href="#">buy<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="#">house</a></li>
+                      <li><a href="#">flat</a></li>
+                      <li><a href="#">shop</a></li>
+                      <li><a href="#">ready to move</a></li>
+                      <li><a href="#">furnished</a></li>
+                   </ul>
+                </li>
+                <li><a href="#">sell<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="/property/new">post property</a></li>
+                      <li><a href="#">dashboard</a></li>
+                   </ul>
+                </li>
+                <li><a href="#">rent</a>
+                   <ul>
+                      <li><a href="#">house</a></li>
+                      <li><a href="#">flat</a></li>
+                      <li><a href="#">shop</a></li>
+                   </ul>
+                </li>
+                <li><a href="#">help<i class="fas fa-angle-down"></i></a>
+                   <ul>
+                      <li><a href="/about">about us</a></i></li>
+                      <li><a href="/contact">contact us</a></i></li>
+                   </ul>
+                </li>
+             </ul>
+          </div>
+ 
+          <ul>
+        
+             <li><a href="/property/new">account <i class="fas fa-angle-down"></i></a>
+                <ul>
+                   <li><a href="/login">login</a></li>
+                   <li><a href="/register">register</a></li>
+                </ul>
+             </li>
+          </ul>
+       </section>
+    </nav>
+ 
+ </header>
+ 
+
+<div class="formback">
+<form action="/home" class="form-validation" method="POST" enctype="multipart/form-data">
+ <div class="container">
+ <h3 style="padding-bottom: 40px; color: brown" class="text-white">POST A PROPERTY</h3>
+
+ 	 <div class="row">
+  
+   <div class="col-md-6">
+        
+
+        <input type="text" name="name" placeholder="Name">  	 	
+        <input type="text" name="big image" placeholder="Big image">
+        <input type="text" name="image" placeholder="Image1">  	 	
+        <input type="text" name="image2" placeholder="Image2">  	 	
+        <input type="text" name="image3" placeholder="Image3">  	 	
+        <input type="text" name="image4" placeholder="Image4">  	 	
+        	
+  </div>
+ 
+ <div class="col-md-6">
+       
+    <input type="text" name="location" placeholder="Location">  
+    <input type="text" name="price" placeholder="Max-Budget">  	 	
+    <input type="text" name="room" placeholder="Rooms"> 
+   	    
+
+    <div class="form-group">
+        <select class=" selected" name="rent">
+        	<option>Type Of Property</option>
+        	<option value="flat" style="background-color: black; color: white; ">Flat</option>
+        	<option value="house" style="background-color: black; color: white; ">House</option>
+        	<option value="Shop" style="background-color: black; color: white; ">Shop</option>
+         
+      </select>  	 	
+       </div>
+     </div>
+         
+    <button>Submit</button>
+    </div>  
+
+  </div>
+ </div>
+
+
+
+</form>
+</div>
+
+ 
+
+</body>
+</html>
